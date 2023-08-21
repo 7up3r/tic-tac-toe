@@ -14,43 +14,46 @@
     </header>
     <main class="container">
         <div class="total-Player" id="totalPlayer">
-            <label for="numberOfPlayer">PLaying against computer or friend?</label>
+            <label for="numberOfPlayer">PLaying against? :</label>
             <select name="numberOfPlayer" id="numberOfPlayer">
-                <option value="1">Computer</option>
-                <option value="2" disabled>Friend</option>
+                <option value="2">Friend</option>
+                <option value="1" disabled>Computer</option>
             </select>
         </div>
-        <div class="symbol-Selection" id="symbolSelection">
-            <p>Select your symbol :</p>
-            <div class="symbol-Button">
-                <div class="cross">
-                    <button>
-                        <img src="./images/cross.svg" alt="">
-                    </button>
-                </div>
-                <duv class="circle">
-                    <button>
-                        <img src="./images/circle.svg" alt="">
-                    </button>
-                </duv>
+        <div class="sign-Selection" id="signSelection">
+            <p id="playerTurn">PLayer 1 select your sign :</p>
+            <div class="sign-Button">
+                <button value="X" class="cross" id="cross">X</button>
+                <button value="O" class="circle" id="circle">O</button>
             </div>
         </div>
-        <div class="playing-Grid" >
-            <div class="box box-11 box-Cross" id="box11"></div>
-            <div class="box box-12 box-Circle" id="box12"></div>
-            <div class="box box-13" id="box13"></div>
-            <div class="box box-21" id="box21"></div>
-            <div class="box box-22" id="box22"></div>
-            <div class="box box-23" id="box23"></div>
-            <div class="box box-31" id="box31"></div>
-            <div class="box box-32" id="box32"></div>
-            <div class="box box-33" id="box33"></div>
+        <div class="playing-Grid" id="playingGrid">
+            <button class="box" id="box1" value="1"><p></p></button>
+            <button class="box" id="box2" value="2"><p></p></button>
+            <button class="box" id="box3" value="3"><p></p></button>
+            <button class="box" id="box4" value="4"><p></p></button>
+            <button class="box" id="box5" value="5"><p></p></button>
+            <button class="box" id="box6" value="6"><p></p></button>
+            <button class="box" id="box7" value="7"><p></p></button>
+            <button class="box" id="box8" value="8"><p></p></button>
+            <button class="box" id="box9" value="9"><p></p></button>
+        </div>
+        <div class="reset-Button">
+            <button id="resetBtn"></button>
         </div>
     </main>
     <footer>
-        <a href="https://github.com/7up3r">
+        <a href="https://github.com/7up3r" target="_blank">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAb1BMVEX////4+Pi3ubtvcnZNUVU+Q0cpLjLr6+x3en0sMTYkKS59gIORk5aUl5n8/Pzw8PFTV1tbX2Pc3d5DSEzn5+g3PECLjpFKTlKFh4qxs7XCxMUwNTq/wcLh4uPV1tZzd3o/Q0jOz9CmqKpjZ2qfoaSrd37mAAABPUlEQVR4AW3TBZKEMBAF0B8GCHzcnbW5/xm30qEyknklcU/DgQpuYRTHUXgLFHw6SemkmcYrlcd8kRYlnlQ1PU0Fp434Qde75Qd+1FUQKiRZjyGfTGNjKhWMmSQXYO3Ibao3MlqBnSRzADhk/ycAdcqclSSHnEUD+KLt8KalMQMqpl3izU5jKxHQGCq8Ud80fq4VfuFZaIyQO4wVPEre5g+RrIAPJrkQSL8OPjv3htQmH8guU5uwgseeP7ITMYBnpdFgvlJPcx0zoLjjzS/FDrVRvH6xsqDYlLx29huRUaFx6YuI1mhKMbddf9trEzca7rmRk/FxpiRXiJO8FDBURyb4yfO7glC8TOpacmAc4ElMEWlc2oGckjwvYVFEB5wjouE6uLBwquypQym/scKrM4njElYaJy182q15aDj/oQMZkS8JH3IAAAAASUVORK5CYII="/>
         </a>
     </footer>
+
+    <div class="overlay" id="overlay">
+        <div class="game-Result-Modal" id="gameResultModal">
+            <p>GAME OVER!</p> <br>
+            <p id="winMessage"></p>
+        </div>
+        <img src="./images/party-popper-confetti.gif" />
+    </div>
 </body>
 </html>

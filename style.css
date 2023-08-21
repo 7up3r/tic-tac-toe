@@ -6,23 +6,26 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: game;
+    font-family: game, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     box-sizing: border-box;
 }
 
 html, body {
     min-height: 100vh;
-    min-width: 100vw;
+    min-width: 500px;
     position: relative;
-    background-color: blueviolet;
+    background-color: #2c698d;
 }
+
+/*Header*/
+
 header {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    background-color: rgb(214, 229, 243);
+    background-color: #bae8e8;
     padding: 10px;
 }
 
@@ -32,8 +35,11 @@ header {
 }
 
 .heading {
+    text-shadow: 4px 4px 10px #dfa28f;
     font-size: 30px;
 }
+
+/* Container*/
 
 .container {
     display: flex;
@@ -41,6 +47,8 @@ header {
     justify-content: center;
     align-items: center;
 }
+
+/*Game Mode*/
 
 .total-Player {
     height: 70px;
@@ -60,9 +68,12 @@ header {
     border: none;
     outline: none;
     cursor: pointer;
+    text-align: center;
 }
 
-.symbol-Selection{
+/*Sign (X or O) selection*/
+
+.sign-Selection{
     height: 100px;
     display: flex;
     flex-direction: column;
@@ -72,7 +83,13 @@ header {
     border-bottom: 1px solid grey;
 }
 
-.symbol-Selection button {
+.sign-Button {
+    display: flex;
+    gap: 30px;
+}
+
+.cross,
+.circle {
     background-color: transparent;
     border: none;
     padding: 4px;
@@ -80,22 +97,21 @@ header {
     box-shadow: 2px 2px 8px #777575;
     background: #eee;
     border: none;
-}
-
-.symbol-Button {
-    display: flex;
-    gap: 30px;
-}
-
-.symbol-Selection img {
     height: 30px;
     width: 100px;
 }
 
-.selected-Symbol button{
-    transform: scale(1.1);
-    box-shadow: 0 0 10px 10px rgb(33, 194, 19);
+.cross:disabled,
+.circle:disabled {
+    color: black;
 }
+
+.selected-sign {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 5px rgb(28, 243, 8); 
+}
+
+/*GameBox*/
 
 .playing-Grid {
     margin-top: 50px;
@@ -105,31 +121,47 @@ header {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 3px;
-    box-shadow: 0 0 10px 10px rgb(109, 19, 194);
+    box-shadow: 0 0 10px 10px #272643;
 }
 
 .box {
-    background-color: #fff;
+    background-color: #e3f6f5;
+    appearance: none;
+    border: none;
 }
 
+.box p{
+    font-size: 50px;
+}
 
-.box-Cross {
-    background-image: url(./images/cross.svg);
-    background-size: 70px 70px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: rgb(235, 157, 157);
+.box:hover {
+    border: 5px solid rgb(4, 221, 4);
+}
+
+.box:disabled {
+    color: black;
+    border: none;
     transform: scale(0.95);
 }
 
-.box-Circle {
-    background-image: url(./images/circle.svg);
-    background-size: 70px 70px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: rgb(137, 193, 240);
-    transform: scale(0.95);
+/*Reset*/
+
+#resetBtn {
+    margin: 50px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: none;
+    background-image: url('./images/reset.svg');
+    background-size: contain;
+    background-color: transparent;
 }
+
+#resetBtn:hover {
+    transform: scale(1.2);
+}
+
+/*Footer*/
 
 footer {
     width: 100%;
@@ -140,4 +172,50 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+/*MODAL*/
+
+.overlay { 
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    cursor: pointer;
+    transform: scale(0);
+    transition: ease-out;
+}
+
+.active {
+    transform: scale(1);
+}
+
+
+
+.game-Result-Modal {
+    color: black;
+    text-shadow: 2px 2px 4px #8fc2df;
+    padding: 40px;
+    text-align: center;
+    position: absolute;
+    z-index: 100;
+    top: 30%;
+    height: 150px;
+    width: 100%;
+    background-color: #fff1bf;
+    transform: translate(0, -50%) scale(1);
+    transition: 0.3s ease-in;
+}
+
+.overlay img {
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
 }
